@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <ul *ngIf="launches$ | async as launches else noData" class="list-group">
+        <li *ngFor="let launch of launches" class="list-group-item">
+          <ul class="list-unstyled">
+              <li *ngFor="let payload of launch.rocket.second_stage.payloads">
+                <h1>{{ payload.payload_id }}</h1>
+                <h4>
+                  <small class="text-muted">{{ payload.orbit }}</small><br />
+                  <small class="text-muted">{{ payload.payload_type }}</small><br />
+                </h4>
+              </li>
+          </ul>
+          <h3>Flight Info:</h3>
+          Flight Number: {{ launch.flight_number }}<br />
+          NET (Local): {{ launch.launch_date_local | date:'short' }}<br />
+          Launch Site: {{ launch.launch_site.site_name_long }}<br />
+          Rocket: {{ launch.rocket.rocket_name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

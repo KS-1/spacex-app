@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <ul *ngIf="rockets$ | async as rockets else noData" class="list-group">
+        <li *ngFor="let rocket of rockets" class="list-group-item">
+          <h1>{{ rocket.name }}</h1><br />
+          Active: {{ rocket.active }} <br />
+          Cost Per Launch: {{ rocket.cost_per_launch | currency:'USD' }} <br />
+          Diameter Feet: {{ rocket.diameter.feet }} - Meters: {{ rocket.diameter.meters }}<br />
+          Engines: {{ rocket.engines.type }} {{ rocket.engines.version }} Number: {{ rocket.engines.number }} <br />
+          Mass Kilograms: {{ rocket.mass.kg }} - Pounds: {{ rocket.mass.lb }}<br />
+          Number of Stages: {{ rocket.stages }}<br />
+          Maiden Launch: {{ rocket.first_flight | date:'short' }}<br />
+          Success Rate: %{{ rocket.success_rate_pct }}<br />
+          <br />
+          {{ rocket.description }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
