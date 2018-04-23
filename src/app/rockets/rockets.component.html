@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm">
-      <ul *ngIf="rockets$ | async as rockets else noData" class="list-group">
+      <ul *ngIf="rockets$ | async as rockets" class="list-group">
         <li *ngFor="let rocket of rockets" class="list-group-item">
           <h1>{{ rocket.name }}</h1><br />
           Active: {{ rocket.active }} <br />

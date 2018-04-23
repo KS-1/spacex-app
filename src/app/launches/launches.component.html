@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm">
-      <ul *ngIf="launches$ | async as launches else noData" class="list-group">
+      <ul *ngIf="launches$ | async as launches" class="list-group">
         <li *ngFor="let launch of launches" class="list-group-item">
           <ul class="list-unstyled">
               <li *ngFor="let payload of launch.rocket.second_stage.payloads">
